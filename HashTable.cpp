@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 class HashTable {
 private:
@@ -131,3 +132,14 @@ public:
         delete[] table;
     }
 };
+
+// int main(){
+//     HashTable h = HashTable(3);
+//     h.insert(1);
+//     h.printTable();
+//     h.insert(2);
+//     h.printTable();
+//     h.insert(3);
+//     h.printTable();
+//     return 0;
+// };
