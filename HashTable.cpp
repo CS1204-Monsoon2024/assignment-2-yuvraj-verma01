@@ -6,7 +6,7 @@ private:
     std::string* table;
     int table_size;
     int current_size;
-    const float load_factor;
+    double load_factor;
     
 
 
