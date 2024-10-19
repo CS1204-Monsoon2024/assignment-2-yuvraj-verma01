@@ -6,7 +6,7 @@ private:
     std::string* table;
     int table_size;
     int current_size;
-    const float load_factor = 0.8;
+    
 
 
     int hash(int key) {
@@ -50,6 +50,7 @@ private:
 
 public:
     HashTable(int size) {
+        const float load_factor = 0.8;
         table_size = nextPrime(size); 
         table = new std::string[table_size];
         current_size = 0;
