@@ -4,7 +4,7 @@ using namespace std;
 
 class HashTable {
 private:
-    std::string* table;
+    string* table;
     int table_size;
     int current_size;
     double load_factor;
@@ -37,15 +37,15 @@ private:
     void resizeTable() {
         int old_size = table_size;
         table_size = nextPrime(2 * table_size); 
-        std::string* old_table = table;
-        table = new std::string[table_size];
+        string* old_table = table;
+        table = new string[table_size];
         for (int i = 0; i < table_size; i++) {
             table[i] = "Empty Slot";
         }
         current_size=0;
         for (int i = 0; i < old_size; i++) {
             if (old_table[i] != "Empty Slot" && old_table[i] != "Deleted Slot") {  
-                insert(std::stoi(old_table[i]));
+                insert(stoi(old_table[i]));
             }
         }
         delete[] old_table;
@@ -55,7 +55,7 @@ public:
     HashTable(int size) {
         load_factor = 0.8;
         table_size = nextPrime(size); 
-        table = new std::string[table_size];
+        table = new string[table_size];
         current_size = 0;
         for (int i = 0; i < table_size; i++) {
             table[i] = "Empty Slot";  
@@ -64,7 +64,7 @@ public:
 
     void insert(int key) {
         if (search(key) != -1) {
-            std::cout << "Duplicate key insertion is not allowed" << std::endl;
+            cout << "Duplicate key insertion is not allowed" << endl;
             return;
         }
 
@@ -78,12 +78,12 @@ public:
         while (table[(index + i * i) % table_size] != "Empty Slot" && table[(index + i * i) % table_size] != "Deleted Slot") {  
             i++;
             if (i == table_size) {
-                std::cout << "Max probing limit reached!" << std::endl;
+                std::cout << "Max probing limit reached!" << endl;
                 return;
             }
         }
 
-        table[(index + i * i) % table_size] = std::to_string(key); 
+        table[(index + i * i) % table_size] = to_string(key); 
         current_size++;
     }
 
@@ -93,7 +93,7 @@ public:
         int i = 0;
 
         while (table[(index + i * i) % table_size] != "Empty Slot") {  
-            if (table[(index + i * i) % table_size] != "Deleted Slot" && std::stoi(table[(index + i * i) % table_size]) == key) {
+            if (table[(index + i * i) % table_size] != "Deleted Slot" && stoi(table[(index + i * i) % table_size]) == key) {
                 return (index + i * i) % table_size;  
             }
             i++;
@@ -108,7 +108,7 @@ public:
     void remove(int key) {
         int index = search(key);
         if (index == -1) {
-            std::cout << "Element not found" << std::endl;
+            cout << "Element not found" << endl;
         } else {
             table[index] = "Deleted Slot";  
             current_size--;
@@ -119,14 +119,14 @@ public:
     void printTable() {
         for (int i = 0; i < table_size; i++) {
             if (table[i] == "Empty Slot") {
-                std::cout << "- ";
+                cout << "- ";
             } else if (table[i] == "Deleted Slot") {
-                std::cout << "- ";  
+                cout << "- ";  
             } else {
-                std::cout << table[i] << " ";
+                cout << table[i] << " ";
             }
         }
-        std::cout << std::endl;
+        cout << std::endl;
     }
 };
 
