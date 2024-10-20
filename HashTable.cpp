@@ -127,19 +127,15 @@ public:
         }
         std::cout << std::endl;
     }
-
-    ~HashTable() {
-        delete[] table;
-    }
 };
 
-// int main(){
-//     HashTable h = HashTable(3);
-//     h.insert(1);
-//     h.printTable();
-//     h.insert(2);
-//     h.printTable();
-//     h.insert(3);
-//     h.printTable();
-//     return 0;
-// };
+int main(){
+    HashTable h = HashTable(3);
+    h.insert(1);
+    h.printTable();
+    h.insert(2);
+    h.printTable();
+    h.insert(3);
+    h.printTable();
+    return 0;
+};
