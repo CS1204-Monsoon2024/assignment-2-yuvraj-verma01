@@ -42,6 +42,7 @@ private:
         for (int i = 0; i < table_size; i++) {
             table[i] = "Empty Slot";
         }
+        current_size=0;
         for (int i = 0; i < old_size; i++) {
             if (old_table[i] != "Empty Slot" && old_table[i] != "Deleted Slot") {  
                 insert(std::stoi(old_table[i]));
