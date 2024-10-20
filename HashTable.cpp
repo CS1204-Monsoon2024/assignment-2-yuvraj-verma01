@@ -67,7 +67,7 @@ public:
             return;
         }
 
-        if ((float)current_size / table_size > load_factor) {
+        if ((double)current_size / table_size > load_factor) {
             resizeTable();  
         }
 
